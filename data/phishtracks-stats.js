@@ -1,7 +1,8 @@
 // TODO
 // X get show info
-// - hook doesnt work for first song when visiting a song url. createSound is 
-//   called before the hook is installed.
+// - if /shows/:date/:track -style url is the first url when visiting the site, 
+//   the the track is played before the hook can be setup. need to install the
+//   hook sooner, or have a special case for this.
 
 var wrappedWindow = content.wrappedJSObject;
 
@@ -24,7 +25,7 @@ PTS.initOnFinishHook = function() {
 		options[callbackName] = function() {
 			var currTrack = _this.player.get("currentTrack");
 			var currShow = currTrack.collection.show;
-			self.port.emit("trackFinished", { track: currTrack,
+			self.port.emit("trackFinished", { playedTrack: currTrack,
 											  show: currShow });
 			oldCallback();
 			alert("onfinish callback called");
