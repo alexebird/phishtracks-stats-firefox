@@ -12,27 +12,52 @@ var PTS = {
 	player: wrappedWindow.App.player
 };
 
-PTS.initOnFinishHook = function() {
-	alert("installing hook");
-	var oldCreateSound = this.soundManager.createSound;
-	var _this = this;
-	this.soundManager.createSound = function(options) {
-		alert('createSound hook called');
-		//insert callback to add-on in onFinish event
+PTS.wrapOnFinishCallback = function(options) {
+	if (options.__pts_onfinishWrapped == true) {
+		return;
+	}
 
-		var callbackName = 'onfinish';
-		var oldCallback = options[callbackName];
-		options[callbackName] = function() {
-			var currTrack = _this.player.get("currentTrack");
-			var currShow = currTrack.collection.show;
-			self.port.emit("trackFinished", { playedTrack: currTrack,
-											  show: currShow });
-			oldCallback();
-			alert("onfinish callback called");
-		};
+	console.log("wrapping onfinish for '" + options.id + "'")
+	var oldOnFinish = options.onfinish;
 
-		return oldCreateSound.call(_this.soundManager, options);
+	options.onfinish = function(callback) {
+		var currTrack = PTS.player.get("currentTrack");
+		var currShow = currTrack.collection.show;
+		self.port.emit("trackFinished", { playedTrack: currTrack,
+										  show: currShow });
+		oldOnFinish();
+		console.log("onfinish callback wrapper");
+	}
+
+	options.__pts_onfinishWrapped = true;
+}
+
+PTS.wrapCreateSound = function() {
+	console.log("wrapping createSound");
+	var oldCreateSound = PTS.soundManager.createSound;
+
+	PTS.soundManager.createSound = function(options) {
+		console.log("createSound wrapper");
+		PTS.wrapOnFinishCallback(options);
+		return oldCreateSound.call(PTS.soundManager, options);
 	} 
 }
 
-PTS.initOnFinishHook();
+PTS.hookAlreadyPlayingTrack = function() {
+	var sounds = PTS.soundManager.sounds;
+
+	for (var key in sounds) {
+		var sound = sounds[key];
+		if (sound.playState == 1) {  // 1 indicates playing or buffering
+			console.log("wrapping onfinish for playing sound");
+			PTS.wrapOnFinishCallback(sound._iO);
+		}
+	}
+}
+
+PTS.wrapCreateSound();
+
+// Only call this once, for when a track is playing the addon first loads.
+// Wait a bit before hooking already playing track to avoid what seems like a
+// race condition. Didn't investigate.
+setTimeout(PTS.hookAlreadyPlayingTrack, 1000);
