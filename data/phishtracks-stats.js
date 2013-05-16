@@ -1,6 +1,6 @@
 // TODO
 // X get show info
-// - if /shows/:date/:track -style url is the first url when visiting the site, 
+// X if /shows/:date/:track -style url is the first url when visiting the site, 
 //   the the track is played before the hook can be setup. need to install the
 //   hook sooner, or have a special case for this.
 
@@ -14,6 +14,7 @@ var PTS = {
 
 PTS.wrapOnFinishCallback = function(options) {
 	if (options.__pts_onfinishWrapped == true) {
+		console.log("onfinish already wrapped")
 		return;
 	}
 
@@ -49,7 +50,7 @@ PTS.hookAlreadyPlayingTrack = function() {
 	for (var key in sounds) {
 		var sound = sounds[key];
 		if (sound.playState == 1) {  // 1 indicates playing or buffering
-			console.log("wrapping onfinish for playing sound");
+			console.log("sound is playing");
 			PTS.wrapOnFinishCallback(sound._iO);
 		}
 	}
@@ -57,7 +58,7 @@ PTS.hookAlreadyPlayingTrack = function() {
 
 PTS.wrapCreateSound();
 
-// Only call this once, for when a track is playing the addon first loads.
+// Only call this once, for when a track is playing when the addon first loads.
 // Wait a bit before hooking already playing track to avoid what seems like a
 // race condition. Didn't investigate.
 setTimeout(PTS.hookAlreadyPlayingTrack, 1000);
