@@ -8,3 +8,15 @@ $("#new_user").submit(function() {
 	self.port.emit("submit", userLogin);
 	return false;
 });
+
+self.port.on("response", function(response) {
+	$("#login_feedback").html(response.message);
+
+	if (response.success) {
+
+	}
+	else {
+		// change color for error feedback or something
+	}
+});
+
