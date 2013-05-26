@@ -1,9 +1,3 @@
-// TODO
-// X get show info
-// X if /shows/:date/:track -style url is the first url when visiting the site, 
-//   the the track is played before the hook can be setup. need to install the
-//   hook sooner, or have a special case for this.
-
 var wrappedWindow = content.wrappedJSObject;
 
 // PhishTracks Stats (PTS) var
@@ -49,6 +43,7 @@ PTS.hookAlreadyPlayingTrack = function() {
 
 	for (var key in sounds) {
 		var sound = sounds[key];
+		
 		if (sound.playState == 1) {  // 1 indicates playing or buffering
 			console.log("sound is playing");
 			PTS.wrapOnFinishCallback(sound._iO);
