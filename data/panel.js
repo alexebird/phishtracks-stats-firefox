@@ -32,8 +32,21 @@ $("#refresh-stats").click(function(){
 });
 
 self.port.on("refresh-stats-response", function(response) {
-	if (response.success)
-		$("#stats").html(JSON.stringify(response.json.stats));
-	else
-		$("#stats").html("could not refresh");
+	if (response.overall == true) {
+		if (response.success) {
+			$("#overall-stats").html(JSON.stringify(response.json.stats));
+		}
+		else {
+			$("#overall-stats").html("could not refresh overall stats");
+		}
+	}
+
+	if (response.user == true) {
+		if (response.success) {
+			$("#user-stats").html(JSON.stringify(response.json.stats));
+		}
+		else {
+			$("#user-stats").html("could not refresh user stats");
+		}
+	}
 });
