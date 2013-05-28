@@ -9,7 +9,7 @@ $("#new_user").submit(function() {
 	return false;
 });
 
-self.port.on("sign-in-response", function(response) {
+self.port.on("sign_in_response", function(response) {
 	$("#login_feedback").html(response.message);
 
 	if (response.success) {
@@ -24,29 +24,17 @@ self.port.on("sign-in-response", function(response) {
 // stats.html
 
 $("#sign-out-button").click(function(){
-	self.port.emit("sign-out");
+	self.port.emit("sign_out");
 });
 
 $("#refresh-stats").click(function(){
-	self.port.emit("refresh-stats");
+	self.port.emit("manual_stats_refresh");
 });
 
-self.port.on("refresh-stats-response", function(response) {
-	if (response.overall == true) {
-		if (response.success) {
-			$("#overall-stats").html(JSON.stringify(response.json.stats));
-		}
-		else {
-			$("#overall-stats").html("could not refresh overall stats");
-		}
-	}
+self.port.on("overall_stats_update", function(stats) {
+	$("#overall-stats").html(JSON.stringify(stats));
+});
 
-	if (response.user == true) {
-		if (response.success) {
-			$("#user-stats").html(JSON.stringify(response.json.stats));
-		}
-		else {
-			$("#user-stats").html("could not refresh user stats");
-		}
-	}
+self.port.on("user_stats_update", function(stats) {
+	$("#user-stats").html(JSON.stringify(stats));
 });

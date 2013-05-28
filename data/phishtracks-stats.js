@@ -18,7 +18,7 @@ PTS.wrapOnFinishCallback = function(options) {
 	options.onfinish = function(callback) {
 		var currTrack = PTS.player.get("currentTrack");
 		var currShow = currTrack.collection.show;
-		self.port.emit("track-finished", { playedTrack: currTrack,
+		self.port.emit("track_finished", { playedTrack: currTrack,
 										  show: currShow });
 		oldOnFinish();
 		console.log("onfinish callback wrapper");
