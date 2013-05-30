@@ -1,9 +1,9 @@
 {
   "name": "phishtracks-stats",
-  "fullName": "phishtracks-stats",
+  "fullName": "PhishTracks.com Stats",
   "id": "jid1-EQkLBxoKR4xIJQ",
-  "description": "a basic add-on",
-  "author": "",
+  "description": "Provides user accounts, listening history, and stats for PhishTracks.com.",
+  "author": "Alexander Bird",
   "license": "MPL 2.0",
   "version": "0.1"
 }

@@ -1,19 +1,38 @@
 <html>
 <head>
 	<style type="style/css">
+		.calculation_value {
+			text-align: right;
+		}
 	</style>
 </head>
 <body>
 	<h2>Stats</h2>
-	<span id="sign-out-button">Sign out</span>
+	<a id="sign_out_button">Sign out</a>
 
+	<button id="refresh_stats_button" type="button">Refresh</button>
 
-	<input id="refresh-stats" name="refresh_stats" type="button" value="Refresh" />
+	<div id="overall_stats">
+		<h3>Overall</h3>
 
-	<h3>Overall</h3>
-	<div id="overall-stats"></div>
+		<h4>Most Played Tracks</h4>
+		<table id="overall_stats_most_played" class="most_played"></table>
+
+		<table id="overall_stats_calculations" class="calculations"></table>
+
+<!-- 		<table id="overall_stats_recently_played">
+			<tr class="recently_played_row">
+				<td class="recently_played_track"></td>
+			</tr>
+		</table>
+ -->	</div>
 	
-	<h3>User</h3>
-	<div id="user-stats"></div>
+	<div id="user_stats">
+		<h3>User</h3>
+		<h4>Most Played Tracks</h4>
+		<table id="user_stats_most_played" class="most_played"></table>
+
+		<table id="user_stats_calculations" class="calculations"></table>
+	</div>
 </body>
 </html>
