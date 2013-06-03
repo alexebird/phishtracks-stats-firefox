@@ -96,6 +96,6 @@ self.port.on("user_history_updated", function(history) {
 		$("a.track-title", row).attr("data-url", track.url);
 		$("a.show-date", row).html(track.show_info.show_date + ' - ' + track.show_info.location);
 		$("a.show-date", row).attr("data-url", track.show_info.url);
-		$(".play-count", row).html(track.play_count + " plays");
+		$(".time-since-played", row).html(track.time_since_played + ' ago');
 	});
 });
