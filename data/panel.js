@@ -25,13 +25,13 @@ self.port.on("sign_in_response", function(response) {
 
 // stats.html
 
-$("#sign_out_button").click(function(){
+$("#sign-out-button").click(function(){
 	self.port.emit("sign_out");
 });
 
-$("#refresh_stats_button").click(function(){
-	self.port.emit("manual_stats_refresh");
-});
+// $("#refresh_stats_button").click(function(){
+// 	self.port.emit("manual_stats_refresh");
+// });
 
 // function renderCalculationRow(name, value) {
 // 	var newRow = $('<tr class="calculations_row"><td class="calculation_name"></td><td class="calculation_value"></td></tr>');
@@ -64,7 +64,7 @@ function installOpenTabLinkHandlers() {
 	});
 }
 
-// installOpenTabLinkHandlers();  // TODO update classes
+installOpenTabLinkHandlers();  // TODO update classes
 
 self.port.on("overall_stats_updated", function(stats) {
 	$("#overall-tracks-played-value").html(stats.tracks_played);
