@@ -12,7 +12,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="donut-no-bg.svg">
+   sodipodi:docname="logo.svg">
   <metadata
      id="metadata14">
     <rdf:RDF>
@@ -26,7 +26,21 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs12" />
+     id="defs12">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3938">
+      <rect
+         style="fill:#999999"
+         id="rect3940"
+         width="219.63359"
+         height="365.67862"
+         x="-50.427917"
+         y="-328.83627"
+         clip-path="none"
+         transform="scale(1,-1)" />
+    </clipPath>
+  </defs>
   <sodipodi:namedview
      pagecolor="#37505e"
      bordercolor="#666666"
@@ -34,15 +48,15 @@
      objecttolerance="10"
      gridtolerance="10"
      guidetolerance="10"
-     inkscape:pageopacity="0"
+     inkscape:pageopacity="0.52156863"
      inkscape:pageshadow="2"
      inkscape:window-width="1440"
      inkscape:window-height="852"
      id="namedview10"
      showgrid="false"
-     inkscape:zoom="1.9891404"
-     inkscape:cx="132.5"
-     inkscape:cy="105.63467"
+     inkscape:zoom="0.8832893"
+     inkscape:cx="351.18786"
+     inkscape:cy="32.75069"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -64,7 +78,7 @@
      cy="150"
      r="100"
      id="svg_1"
-     transform="translate(-17.5,-17.5)"
+     transform="matrix(1,0,0,-1,-17.5,282.5)"
      inkscape:export-filename="/Users/bird/Documents/phishtracks-stats/data/assets/donut-no-bg.png"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90" />

@@ -107,10 +107,14 @@ a {
   cursor: pointer;
 }
 
-#sign-out-button {
+#user-menu {
   // position: relative;
+  display: inline;
   float: right;
   color: $off_white;
+  a {
+    color: $off_white;
+  }
   margin-right: 30px;
   margin-top: 10px;
 }
