@@ -1,9 +1,8 @@
-$dark_gray: #313F47;
-$off_white: #F4FBFF;
+@import "colors";/
 
 body {
   font-size: 100%;
-  background-color: $dark_gray;
+  background-color: $donut_gray;
   color: $off_white;
   min-height: 350px;
   height: 350px;
@@ -21,7 +20,7 @@ body {
 
 a {
   cursor: pointer;
-  color: $off-white;
+  color: $off_white;
   
   &:hover {
     color: $off_white;

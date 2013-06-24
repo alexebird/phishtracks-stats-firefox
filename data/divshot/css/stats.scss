@@ -1,17 +1,8 @@
-$gray: #FFF4C7;
-$dark_gray: #313F47;
-$red: #5E1B21;
-$med_red: #8F5056;
-$light_red: #FFF4F5;
-$off_white: #F4FBFF;
-$donut_gray: #37505e;
-$donut_red: #bc2c2d;
-$dark_red: $donut_red;
-$gold: #FFF4C7;
+@import "colors";
 
 body {
   font-size: 100%;
-  background-color: $dark_gray;
+  background-color: $donut_gray;
   color: $off_white;
 }
 
@@ -42,7 +33,7 @@ body {
 }
 
 .table .stats-value {
-  color: $gray;
+  color: $gold;
   text-align: right;
 }
 
@@ -69,7 +60,7 @@ body {
   }
   
   td.play-count {
-    color: $gray;
+    color: $gold;
     align: right;
     text-align: right;
     font-size: 80%;
@@ -79,7 +70,7 @@ body {
   }
 
   td.time-since-played {
-    color: $gray;
+    color: $gold;
     align: right;
     text-align: right;
     font-size: 80%;
