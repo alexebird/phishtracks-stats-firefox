@@ -1,0 +1,10 @@
+@import "colors";
+
+a {
+  cursor: pointer;
+  color: $linkColor;
+
+  &:hover {
+    color: $linkColorHover;
+  }
+}

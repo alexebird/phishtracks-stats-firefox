@@ -1,11 +1,11 @@
-@import "colors";
+@import "application";
 
 body {
   font-size: 100%;
-  background-color: $donut_gray;
-  color: $off_white;
-  min-height: 350px;
-  height: 350px;
+  background-color: $donutGray;
+  color: $offWhite;
+  // min-height: 350px;
+  // height: 350px;
 }
 
 .container {
@@ -20,10 +20,10 @@ body {
 
 a {
   cursor: pointer;
-  color: $off_white;
+  color: $linkColor;
 
   &:hover {
-    color: $off_white;
+    color: $linkColorHover;
   }
 }
 
@@ -48,7 +48,7 @@ a {
   .control-label {
     width: 65px;
   }
-  
+
   .controls {
     margin-left: 100px;
   }
@@ -70,13 +70,28 @@ a {
   margin-left: 15px;
 }
 
-#pts-logo {
+#logo-wrapper {
+  width: 360px;
+  align: center;
+  margin: auto;
+  // display: block;
   padding: 10px;
   margin-bottom: -20px;
-  width: 300px;
+}
+
+#pts-logo {
+  width: 350px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 #sign-in-alert {
   display: none;
   margin-top: 11px;
+  margin-bottom: 0px;
+}
+
+#new-user {
+  margin-bottom: 3px;
 }

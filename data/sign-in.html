@@ -4,16 +4,17 @@
   <head>
     <title>Sign In</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="css/bootstrap-responsive.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/sign-in.css">
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </head>
 
   <body>
     <div id="top-level-container">
-      <img src="http://alxb.us/files/logo.svg" id="pts-logo">
+      <div id="logo-wrapper">
+        <img src="assets/logos/phishtracks-stats-logo-flat@2x.png" id="pts-logo">
+      </div>
       <div class="container">
         <form id="new-user" class="form-horizontal">
           <div class="row">
@@ -33,26 +34,27 @@
               <div class="control-group">
                 <div class="controls">
                   <button type="submit" class="btn">Sign in</button>
-                  <a id="forgot-password-button" class="open-tab-link" data-url="http://localhost:3000/users/password/new">Forgot your password?</a>
+                  <a id="forgot-password-button" class="open-tab-link" data-url="{pts}/users/password/new">Forgot your password?</a>
                 </div>
               </div>
             </div>
             <div id="sign-up-column" class="span2">
               <div>
-                <a class="btn open-tab-link btn-danger btn-large" data-url="http://localhost:3000/users/sign_up"
+                <a class="btn open-tab-link btn-danger btn-large" data-url="{pts}/users/sign_up"
                 id="sign-up-button">Sign up</a>
               </div>
             </div>
           </div>
-          <!-- <div id="alert-column"> -->
-            <div id="sign-in-alert" class="alert alert-error fade in">
-              <button type="button" class="close" onclick="$('#sign-in-alert').hide()">&times;</button>
-              <span class="alert-text"><b>Error!</b> Login failed</span>
-            </div>
-          <!-- </div> -->
+          <div id="sign-in-alert" class="alert alert-error fade in">
+            <button type="button" class="close" onclick="$('#sign-in-alert').hide()">&times;</button>
+            <span class="alert-text"><b>Error!</b> Login failed</span>
+          </div>
         </form>
       </div>
     </div>
+
+    <script src="js/retina.js"></script>
+
   </body>
 
 </html>
