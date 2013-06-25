@@ -1,78 +1,66 @@
 @import "application";
 
+.ellipsis-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 body {
-  font-size: 100%;
   background-color: $donutGray;
   color: $offWhite;
 }
 
-.container {
-  width: 800px;
+h3 {
+  margin-top: 0px;
+}
+
+.tab-content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .nav {
-  // a {
-  //   color: $gold;
-  // }
-  margin-right: 20px;
+  margin-bottom: 0px;
+
+  li {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
 }
 
-// .nav-tabs {
-//   .active {
-//     a, a:focus {
-//       background-color: $off_white;
-//     }
-//   }
-// }
-
-#top-level-container {
-  padding-top: 20px;
-  padding-left: 20px;
-  width: 800px;
-  margin: 10px;
+#user-menu {
+  float: right;
+  margin-right: 30px;
+  margin-top: 10px;
 }
 
-.table .stats-value {
-  color: $gold;
-  text-align: right;
+.span {
+  margin: 0;
+}
+
+$individualStatsWrapperWidth: 240px;
+#individual-stats-wrapper {
+  margin-left: 20px;
+  min-width: $individualStatsWrapperWidth;
+  width: $individualStatsWrapperWidth;
+  max-width: $individualStatsWrapperWidth;
 }
 
 .table {
-  a.track-title {
-    color: $offWhite;
+  .margin-bottom: 0;
 
-    &:hover {
-      color: $offWhite;
-    }
-  }
-
-  td.track-ranking {
-    width: 18px;
-    max-width: 18px;
-    min-width: 18px;
-  }
-
-  td.track-title {
-    max-width: 290px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  td.play-count {
+  .stats-value {
     color: $gold;
-    align: right;
     text-align: right;
-    font-size: 80%;
-    padding-left: 1px;
-    margin-left: 1px;
-    min-width: 115px;
   }
 
-  td.time-since-played {
-    color: $gold;
+  .track-row-additional-info {
+    @extend .stats-value;
+
     align: right;
-    text-align: right;
     font-size: 80%;
     padding-left: 1px;
     margin-left: 1px;
@@ -80,32 +68,48 @@ body {
   }
 }
 
-.show-date {
-  display: block;
-  font-style: italic;
-  font-size: 85%;
-  color: $offWhite;
-  margin-top: -5px;
-  margin-bottom: -5px;
-  margin-left: 7px;
+.table {
+  $rankingWidth: 18px;
+  .track-ranking {
+    color: #ddd;
+    width: $rankingWidth;
+    max-width: $rankingWidth;
+    min-width: $rankingWidth;
+  }
 
+  .track-title {
+    max-width: 400px;
+    @extend .ellipsis-overflow;
+  }
+}
+
+.phishtracks-entity-link {
+  color: $offWhite;
   &:hover {
     color: $offWhite;
   }
 }
 
-#user-menu {
-  // position: relative;
-  display: inline;
-  float: right;
-  color: $offWhite;
-  // a {
-  //   color: $off_white;
-  // }
-  margin-right: 30px;
-  margin-top: 10px;
+// .track-title-link {
+// }
+
+.show-date-link {
+  display: block;
+  font-style: italic;
+  font-size: 85%;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  margin-left: 7px;
+  @extend .ellipsis-overflow;
 }
 
-#refresh-button {
-  display: none;
+// .play-count {
+// }
+
+// .time-since-played {
+// }
+
+#user-history-wrapper {
+  width: 80%;
+  // margin: auto;
 }

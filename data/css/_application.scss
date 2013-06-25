@@ -4,6 +4,7 @@ a {
   cursor: pointer;
   color: $linkColor;
 
+  &:focus,
   &:hover {
     color: $linkColorHover;
   }

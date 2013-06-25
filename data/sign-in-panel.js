@@ -55,10 +55,10 @@ self.port.on("overall_stats_updated", function(stats) {
     $.each(stats.top_tracks, function(i, track) {
         var row = $(rows[i]);
         $(".track-ranking", row).html(i + 1);
-        $("a.track-title", row).html(track.title);
-        $("a.track-title", row).attr("data-url", track.url);
-        $("a.show-date", row).html(track.show_info.show_date + ' - ' + track.show_info.location);
-        $("a.show-date", row).attr("data-url", track.show_info.url);
+        $(".track-title-link", row).html(track.title);
+        $(".track-title-link", row).attr("data-url", track.url);
+        $(".show-date-link", row).html(track.show_info.show_date + ' - ' + track.show_info.location);
+        $(".show-date-link", row).attr("data-url", track.show_info.url);
         $(".play-count", row).html(track.play_count + " plays");
     });
 });
@@ -66,19 +66,50 @@ self.port.on("overall_stats_updated", function(stats) {
 self.port.on("user_stats_updated", function(stats) {
     $("#user-tracks-played-value").html(stats.tracks_played);
     $("#user-total-time-value").html(stats.total_time);
-    $("#user-catalog-progress-value").html(stats.catalog_progress.split(" ").join("<br/>"));
+    $("#user-catalog-progress-value").html(stats.catalog_progress.split(" ").join("<br>"));
 });
 
 self.port.on("user_history_updated", function(history) {
     var rows = $("#user-history tr");
     $.each(history, function(i, track) {
         var row = $(rows[i]);
-        $("a.track-title", row).html(track.title);
-        $("a.track-title", row).attr("data-url", track.url);
-        $("a.show-date", row).html(track.show_info.show_date + ' - ' + track.show_info.location);
-        $("a.show-date", row).attr("data-url", track.show_info.url);
+        $(".track-title-link", row).html(track.title);
+        $(".track-title-link", row).attr("data-url", track.url);
+        $(".show-date-link", row).html(track.show_info.show_date + ' - ' + track.show_info.location);
+        $(".show-date-link", row).attr("data-url", track.show_info.url);
         $(".time-since-played", row).html(track.time_since_played + ' ago');
     });
 });
+
+function initTopTracksTable() {
+    for (var i = 0; i < 10; i++) {
+        $("#overall-top-tracks tbody").append(
+            '<tr>' +
+              '<td class="track-ranking">' + (i + 1) + '</td>' +
+              '<td class="track-title">' +
+                '<a class="open-tab-link track-title-link phishtracks-entity-link"></a>' +
+                '<br>' +
+                '<a class="open-tab-link show-date-link phishtracks-entity-link"></a>' +
+              '</td>' +
+              '<td class="play-count track-row-additional-info"></td>' +
+            '</tr>');
+    }
+}
+initTopTracksTable();
+
+function initHistoryTable() {
+    for (var i = 0; i < 10; i++) {
+        $("#user-history tbody").append(
+            '<tr>' +
+              '<td class="track-title">' +
+                '<a class="open-tab-link track-title-link phishtracks-entity-link"></a>' +
+                '<br>' +
+                '<a class="open-tab-link show-date-link phishtracks-entity-link"></a>' +
+              '</td>' +
+              '<td class="time-since-played track-row-additional-info"></td>' +
+            '</tr>');
+    }
+}
+initHistoryTable();
 
 installOpenTabLinkHandlers();

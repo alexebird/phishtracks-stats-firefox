@@ -13,9 +13,12 @@
   <body>
     <div id="top-level-container">
       <!-- <img src="http://alxb.us/files/donut-no-bg.svg" id="pts-logo"> -->
-      <div id="user-menu">
-        <a id="refresh-button" class="user-menu-button">refresh</a><a id="sign-out-button" class="user-menu-button">sign out</a>
-      </div>
+
+      <ul id="user-menu" class="inline">
+        <li><a id="refresh-button" class="hide user-menu-button">refresh</a></li>
+        <li><a id="sign-out-button" class="user-menu-button">sign out</a></li>
+      </ul> <!-- /ul#user-menu -->
+
       <ul class="nav nav-tabs">
         <li class="active">
           <a href="#stats-tab" data-toggle="tab">Stats</a>
@@ -26,252 +29,74 @@
         <!--<li>
           <a href="#activity-tab" data-toggle="tab">Activity</a>
         </li>-->
-      </ul>
+      </ul> <!-- /ul.nav-tabs -->
+
       <div class="tab-content">
         <div id="stats-tab" class="tab-pane active">
-          <div class="container">
-            <div class="row">
-              <div class="span6">
-                <h3>Most Played</h3>
-                <table id="overall-top-tracks" class="table">
-                  <thead></thead>
-                  <tbody>
-                    <tr>
-                      <td class="track-ranking">1</td>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="play-count"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-ranking">2</td>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="play-count"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-ranking">3</td>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="play-count"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-ranking">4</td>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="play-count"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-ranking">5</td>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="play-count"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-ranking">6</td>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="play-count"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-ranking">7</td>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="play-count"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-ranking">8</td>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="play-count"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-ranking">9</td>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="play-count"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-ranking">10</td>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="play-count"><br/></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="span4">
-                <div id="overall-stats">
-                  <h3>Overall Stats</h3>
-                  <table class="table">
-                    <thead></thead>
-                    <tbody>
-                      <tr>
-                        <td class="stats-name">Tracks Played</td>
-                        <td id="overall-tracks-played-value" class="stats-value"><br/></td>
-                      </tr>
-                      <tr>
-                        <td class="stats-name">Total Time</td>
-                        <td id="overall-total-time-value" class="stats-value"><br/></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div id="user-stats">
-                  <h3>User's Stats</h3>
-                  <table class="table">
-                    <thead></thead>
-                    <tbody>
-                      <tr>
-                        <td class="stats-name">Tracks Played</td>
-                        <td id="user-tracks-played-value" class="stats-value"><br/></td>
-                      </tr>
-                      <tr>
-                        <td class="stats-name">Total Time</td>
-                        <td id="user-total-time-value" class="stats-value"><br/></td>
-                      </tr>
-                      <tr>
-                        <td class="stats-name">Phish Progress</td>
-                        <td id="user-catalog-progress-value" class="stats-value"><br/></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+          <div id="top-tracks-wrapper" class="span">
+            <h3>Most Played</h3>
+            <table id="overall-top-tracks" class="table">
+              <thead></thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div> <!-- /span -->
+          <div id="individual-stats-wrapper" class="span">
+            <div id="overall-stats">
+              <h3>Overall Stats</h3>
+              <table class="table">
+                <thead></thead>
+                <tbody>
+                  <tr>
+                    <td class="stats-name">Tracks Played</td>
+                    <td id="overall-tracks-played-value" class="stats-value"></td>
+                  </tr>
+                  <tr>
+                    <td class="stats-name">Total Time</td>
+                    <td id="overall-total-time-value" class="stats-value"></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </div>
-        </div>
+            <div id="user-stats">
+              <h3>User's Stats</h3>
+              <table class="table">
+                <thead></thead>
+                <tbody>
+                  <tr>
+                    <td class="stats-name">Tracks Played</td>
+                    <td id="user-tracks-played-value" class="stats-value"></td>
+                  </tr>
+                  <tr>
+                    <td class="stats-name">Total Time</td>
+                    <td id="user-total-time-value" class="stats-value"></td>
+                  </tr>
+                  <tr>
+                    <td class="stats-name">Phish Progress</td>
+                    <td id="user-catalog-progress-value" class="stats-value"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div> <!-- /span -->
+        </div> <!-- /stats-tab -->
+
         <div id="history-tab" class="tab-pane">
-          <div class="container">
+          <div id="user-history-wrapper">
             <h3>History</h3>
-            <div class="row">
-              <div class="span7">
-                <table id="user-history" class="table">
-                  <thead></thead>
-                  <tbody>
-                    <tr>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="time-since-played"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="time-since-played"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="time-since-played"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="time-since-played"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="time-since-played"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="time-since-played"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="time-since-played"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="time-since-played"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="time-since-played"><br/></td>
-                    </tr>
-                    <tr>
-                      <td class="track-title">
-                        <a class="open-tab-link track-title"></a>
-                        <br>
-                        <a class="open-tab-link show-date"></a>
-                      </td>
-                      <td class="time-since-played"><br/></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="span5">
-                <br>
-              </div>
-            </div>
-          </div>
-        </div>
+            <table id="user-history" class="table">
+              <thead></thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div> <!-- /user-history-wrapper -->
+        </div> <!-- /history-tab -->
+
         <!--<div id="activity-tab" class="tab-pane">
           <br>
-        </div>-->
-      </div>
-    </div>
+        </div> --> <!-- /activity-tab -->
+      </div> <!-- /tab-content -->
+    </div> <!-- /top-level-container -->
 
     <script src="js/retina.js"></script>
 
