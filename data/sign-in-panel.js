@@ -1,4 +1,6 @@
-// Content script for the panel
+/**
+ * Content Script
+ */
 
 
 /************** Sign In *************/
@@ -6,8 +8,8 @@
 $("#new-user").submit(function() {
     console.log("SIGN-IN PANEL: login form submitted");
     var userLogin = { "user_login": {
-                                        "login":    $("#user-login").val(),
-                           "password": $("#user-password").val() }};
+                        "login":    $("#user-login").val(),
+                        "password": $("#user-password").val() }};
     self.port.emit("login_submitted", userLogin);
     return false;
 });
@@ -25,7 +27,7 @@ self.port.on("sign_in_response", function(response) {
     // else {
         // console.log("DEBUG: sign in failed");
         // $("#sign-in-alert").removeClass("alert-success").addClass("alert-error");
-        $("#sign-in-alert .alert-text").html("<b>Error!</b> " + response.message);
+        $("#sign-in-alert .alert-text").html(response.message);
         $("#sign-in-alert").show();
     }
 });
@@ -43,8 +45,21 @@ $("#sign-out-button").click(function(){
     self.port.emit("sign_out");
 });
 
-$("#refresh-button").click(function(){
+$(".refresh-button").click(function(){
     self.port.emit("manual_refresh");
+});
+
+self.port.on("show_stats_alert", function(message) {
+    console.log("SIGN-IN PANEL: showing stats alert");
+    $("#stats-alert .alert-text").html(message);
+    $("#stats-alert").show();
+});
+
+self.port.on("hide_stats_alert", function() {
+    if ($("#stats-alert").is(":visible")) {
+        console.log("SIGN-IN PANEL: hiding stats alert");
+        $("#stats-alert").hide();
+    }
 });
 
 self.port.on("overall_stats_updated", function(stats) {
