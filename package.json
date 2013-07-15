@@ -2,7 +2,7 @@
   "name": "phishtracks-stats",
   "fullName": "PhishTracks Stats",
   "id": "jid1-EQkLBxoKR4WIJQ",
-  "description": "Provides user accounts, listening history, and stats for PhishTracks.com. http://www.phishtrackstats.com",
+  "description": "Provides user accounts, listening history, and stats for PhishTracks.com.",
   "author": "Alexander Bird",
   "license": "MPL 2.0",
   "version": "0.1"

@@ -14,3 +14,18 @@ cfx xpi --static-args="{ \"logLevel\": \"warn\", \"ptsHost\": \"http://www.phish
 
 On JS/extension testing:
 http://stackoverflow.com/questions/14798528/testing-browser-extensions/17370531#17370531
+
+
+Publishing a new version
+------------------------
+Run:
+  cfx xpi --static-args="{ \"logLevel\": \"warn\", \"ptsHost\": \"http://www.phishtrackstats.com/\" }" --update-link=https://s3.amazonaws.com/phishtrackstats/firefox/phishtracks-stats_latest.xpi --update-url=https://s3.amazonaws.com/phishtrackstats/firefox/update.rdf
+
+Move the generated .xpi and .rdf to the appropriate dir, outside the addon itself.
+
+Change the max version in the .rdf to 22.* or whatever it should be.
+
+Rename the .xpi to phishtracks-stats_latest.xpi
+Rename the .rdf to update.rdf
+
+Put the .xpi and .rdf on S3 and grand Everyone permissions to open/download.
