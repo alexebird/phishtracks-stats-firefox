@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/stats.css">
     <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
   </head>
 
   <body>
     <div id="top-level-container">
-      <!-- <img src="http://alxb.us/files/donut-no-bg.svg" id="pts-logo"> -->
+      <!--<img src="http://alxb.us/files/donut-no-bg.svg" id="pts-logo">-->
 
       <ul id="user-menu" class="inline">
         <li>
-          <div id="stats-alert" class="alert alert-error fade in">
+          <div id="stats-alert" class="alert alert-error fade in" style="display: none;">
             <span class="alert-text"></span>
           </div>
         </li>
-        <li><a id="refresh-button" class="refresh-button hide user-menu-button">refresh</a></li>
+        <li><a id="refresh-button" class="refresh-button user-menu-button hide">refresh</a></li>
         <li><a id="sign-out-button" class="user-menu-button">sign out</a></li>
       </ul> <!-- /ul#user-menu -->
 
@@ -45,7 +45,7 @@
               <tbody>
               </tbody>
             </table>
-          </div> <!-- /span -->
+          </div> <!-- /.span -->
           <div id="individual-stats-wrapper" class="span">
             <div id="overall-stats">
               <h3>Overall Stats</h3>
@@ -54,7 +54,7 @@
                 <tbody>
                   <tr>
                     <td class="stats-name">Tracks Played</td>
-                    <td id="overall-tracks-played-value" class="stats-value"></td>
+                    <td id="overall-play-count-value" class="stats-value"></td>
                   </tr>
                   <tr>
                     <td class="stats-name">Total Time</td>
@@ -70,7 +70,7 @@
                 <tbody>
                   <tr>
                     <td class="stats-name">Tracks Played</td>
-                    <td id="user-tracks-played-value" class="stats-value"></td>
+                    <td id="user-play-count-value" class="stats-value"></td>
                   </tr>
                   <tr>
                     <td class="stats-name">Total Time</td>
@@ -99,8 +99,15 @@
 
         <!--<div id="activity-tab" class="tab-pane">
           <br>
-        </div> --> <!-- /activity-tab -->
+        </div>--> <!-- /activity-tab -->
       </div> <!-- /tab-content -->
+      <div id="footer">
+        <span id="footer-message">Overall Stats updated every 10 seconds or so</span>
+        <span id="feedback-info">
+          Feedback is greatly appreciated!
+          Twitter: <a class="open-tab-link" data-url="https://twitter.com/phishtrackstats">@phishtrackstats</a>
+        </span>
+      </div>
     </div> <!-- /top-level-container -->
 
     <script src="js/retina.js"></script>

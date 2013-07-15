@@ -18,16 +18,8 @@ $("#new-user").submit(function() {
 // Event handling
 
 self.port.on("sign_in_response", function(response) {
-    if (!response.success) {
-        // console.log("DEBUG: sign in success");
-        // $("#sign-in-alert").removeClass("alert-error").addClass("alert-success");
-        // $("#sign-in-alert .alert-text").html("Sign in successful.");
-        // $("#sign-in-alert").show();
-    // }
-    // else {
-        // console.log("DEBUG: sign in failed");
-        // $("#sign-in-alert").removeClass("alert-success").addClass("alert-error");
-        $("#sign-in-alert .alert-text").html(response.message);
+    if (response.failure) {
+        $("#sign-in-alert .alert-text").html(response.data.error);
         $("#sign-in-alert").show();
     }
 });
@@ -56,15 +48,13 @@ self.port.on("show_stats_alert", function(message) {
 });
 
 self.port.on("hide_stats_alert", function() {
-    if ($("#stats-alert").is(":visible")) {
-        console.log("SIGN-IN PANEL: hiding stats alert");
-        $("#stats-alert").hide();
-    }
+    console.log("SIGN-IN PANEL: hiding stats alert");
+    $("#stats-alert").hide();
 });
 
 self.port.on("overall_stats_updated", function(stats) {
-    $("#overall-tracks-played-value").html(stats.tracks_played);
-    $("#overall-total-time-value").html(stats.total_time);
+    $("#overall-play-count-value").html(stats.play_count);
+    $("#overall-total-time-value").html(stats.total_time_formatted);
 
     var rows = $("#overall-top-tracks tr");
     $.each(stats.top_tracks, function(i, track) {
@@ -79,8 +69,8 @@ self.port.on("overall_stats_updated", function(stats) {
 });
 
 self.port.on("user_stats_updated", function(stats) {
-    $("#user-tracks-played-value").html(stats.tracks_played);
-    $("#user-total-time-value").html(stats.total_time);
+    $("#user-play-count-value").html(stats.play_count);
+    $("#user-total-time-value").html(stats.total_time_formatted);
     $("#user-catalog-progress-value").html(stats.catalog_progress.split(" ").join("<br>"));
 });
 

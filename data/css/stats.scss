@@ -33,12 +33,11 @@ h3 {
 
 #user-menu {
   float: right;
-  margin-right: 30px;
+  margin-right: 10px;
   margin-top: 10px;
 }
 
 #stats-alert {
-  display: none;
   margin: 0;
   padding: 3px 6px;
 }
@@ -121,4 +120,25 @@ $individualStatsWrapperWidth: 240px;
 #user-history-wrapper {
   width: 80%;
   // margin: auto;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background-color: $gray;
+  // margin: 4px;
+
+  span {
+    margin: 6px;
+    display: inline-block;
+  }
+}
+
+#footer-message {
+
+}
+
+#feedback-info {
+  float: right;
 }
