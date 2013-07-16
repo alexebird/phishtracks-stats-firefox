@@ -1,9 +1,12 @@
 {
   "name": "phishtracks-stats",
   "fullName": "PhishTracks Stats",
-  "id": "jid1-EQkLBxoKR4WIJQ",
+  "id": "phishtracks-stats@phishtrackstats.com",
   "description": "Provides user accounts, listening history, and stats for PhishTracks.com.",
   "author": "Alexander Bird",
   "license": "MPL 2.0",
-  "version": "0.1"
+  "homepage": "http://www.phishtrackstats.com",
+  "icon": "data/assets/ico/icon-bargraph48x48.png",
+  "icon64": "data/assets/ico/icon-bargraph64x64.png",
+  "version": "0.1.0"
 }
