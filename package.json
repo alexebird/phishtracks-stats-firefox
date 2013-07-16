@@ -6,7 +6,7 @@
   "author": "Alexander Bird",
   "license": "MPL 2.0",
   "homepage": "http://www.phishtrackstats.com",
-  "icon": "data/assets/ico/icon-bargraph48x48.png",
-  "icon64": "data/assets/ico/icon-bargraph64x64.png",
+  "icon": "icon.png",
+  "icon64": "icon64.png",
   "version": "0.1.0"
 }

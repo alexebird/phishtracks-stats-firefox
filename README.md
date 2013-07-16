@@ -14,7 +14,12 @@ On JS/extension testing:
 http://stackoverflow.com/questions/14798528/testing-browser-extensions/17370531#17370531
 
 
-Publishing a new version
+Releasing a new version
 ------------------------
+Bump version in package.json
+
 From add-on root:
   ../release.sh .
+
+Then (replacing <VERSION> with the version):
+  heroku config:set LATEST_XPI=phishtracks-stats-<VERSION>.xpi --remote production
