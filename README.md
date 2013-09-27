@@ -16,10 +16,15 @@ http://stackoverflow.com/questions/14798528/testing-browser-extensions/17370531#
 
 Releasing a new version
 ------------------------
-Bump version in package.json
+- Make sure the add-on SDK has been activated.
+- Bump version in package.json
+- From add-on root:
 
-From add-on root:
-  ../release.sh .
+    ../release_firefox.sh .
 
-Then (replacing <VERSION> with the version):
-  heroku config:set LATEST_XPI=phishtracks-stats-<VERSION>.xpi --remote production
+- Set LATEST_XPI in deployment config (replacing <VERSION> with the version):
+
+    heroku config:set LATEST_XPI=phishtracks-stats-<VERSION>.xpi --remote production
+
+  Or edit the .env file.
+- Set LATEST_XPI in the /etc/init/phishtracks-stats-www upstart jobs
